@@ -1,10 +1,10 @@
 require 'watir'
-require 'CSV'
+require 'csv'
 
 client = Selenium::WebDriver::Remote::Http::Default.new
 browser = Watir::Browser.new :chrome, http_client: client
 position = browser.window.move_to 1400, 0
-browser.goto 'https://www.legislativas2022.mai.gov.pt/resultados/territorio-nacional'
+browser.goto 'https://www.legislativas2024.mai.gov.pt/resultados/territorio-nacional'
 browser.link(text: 'Localidades').click
 
 col_sep = '|'
