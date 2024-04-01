@@ -1,5 +1,5 @@
 require 'watir'
-require 'CSV'
+require 'csv'
 
 client = Selenium::WebDriver::Remote::Http::Default.new
 @browser = Watir::Browser.new :chrome, http_client: client
@@ -30,7 +30,7 @@ s = 'Castelo Branco|Fundão|Souto da Casa'
 
 a = s.split(/\n+/)
 a = a.map { |e| e.split('|') }
-@browser.goto 'https://www.legislativas2022.mai.gov.pt/resultados/territorio-nacional'
+@browser.goto 'https://www.legislativas2024.mai.gov.pt/resultados/territorio-nacional'
 @browser.link(text: 'Localidades').click
 a.each do |e|
   scrape(e[0], e[1], e[2])
