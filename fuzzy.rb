@@ -1,5 +1,5 @@
 require 'fuzzy_match'
-require 'CSV'
+require 'csv'
 
 mai_records = %(
     Aguada de Cima
