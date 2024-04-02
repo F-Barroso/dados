@@ -39,15 +39,17 @@ distritos.each do |d|
     freguesias.each do |f|
       freguesia[0].wait_until(&:present?).select(text: f)
       sleep 2
+      div = browser.div(class: 'small-text')
+      i = div.spans[1].text.gsub('inscritos', '').gsub(/\s+/, '')
       rows = browser.divs(class: 'chart-row')
       row_arr = []
       rows.each { |td| row_arr << td.text.to_s.gsub("\n", ' | ') }
       content = row_arr.reject(&:empty?).join(', ').gsub('votos, ', '| ')
       content = content.gsub(/\s+/, '').gsub('votos', '').split('|')
-      total = "#{d}|#{c}|#{f}|#{content}"
+      total = "#{d}|#{c}|#{f}|#{i}|#{content}"
       CSV.open('table.csv', 'a+', col_sep: col_sep,
-                                  headers: %w[Distrito Concelho Freguesia Partido Voto(%) Votos]) do |csv|
-        csv << [d.to_s, c.to_s, f.to_s].push(*content)
+                                  headers: %w[Distrito Concelho Freguesia Partido Inscritos Voto(%) Votos]) do |csv|
+        csv << [d.to_s, c.to_s, f.to_s, i.to_s].push(*content)
       end
       # File.open('table.csv', 'w') { |file| file.puts "#{d}|#{c}|#{f}|#{content}" }
     end
