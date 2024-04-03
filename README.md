@@ -1,5 +1,5 @@
 🇵🇹 
-Este repositório contem todos os resultados por freguesia das eleições legislativas de janeiro de 2022 e março de 2024.
+Este repositório contem todos os resultados por freguesia das eleições legislativas de março de 2024.
 
 Os dados foram extraídos do MAI usando um scraper escrito em Ruby que também disponibilizo aqui.
 
