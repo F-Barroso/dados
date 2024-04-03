@@ -15,7 +15,7 @@ distrito.each { |e| a << e.innertext }
 distritos = a[0].to_s.split(/\n+/).drop(1)
 
 distritos.each do |d|
-  distrito[0].wait_until(&:present?).select(text: d)
+  distrito[0].wait_until(&:present?).select(text: 'Açores')#.select(text: d)
   # puts browser.h1.text
   # puts browser.h2.text
   concelho = browser.select_lists(aria_label: 'Concelho')
